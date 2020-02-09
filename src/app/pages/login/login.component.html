@@ -1,0 +1,18 @@
+<app-chat></app-chat>
+
+<div class="container d-flex justify-content-center align-items-center">
+    <div class="from-wrapper text-center">
+        <h2 class="text-center">Login</h2>
+        <form [formGroup]="loginForm" (submit)="submit()" novalidate>
+            <div class="form-group">
+                <input type="email" class= "form-control" id="email-input" placeholder="Enter emial" formControlName="email">
+            </div>
+            <div class="form-group">
+                <input type="password" class= "form-control" id="email-input" placeholder="password" formControlName="password">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+
+        </form>
+        <small><a routerLink="/signup">Need a account?</a></small>
+    </div>
+</div>

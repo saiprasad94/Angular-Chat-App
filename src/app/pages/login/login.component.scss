@@ -1,0 +1,22 @@
+@import '../../../styles.scss'; 
+@import '../../../variables.scss';
+
+
+h2 {
+    color: $secondary;
+    margin-bottom: 1em;
+}
+
+.form-wrapper {
+    min-width: 40%;
+    margin-bottom: 10%;
+    border: 2px solid $light-grey;
+}
+
+.first-name{
+    margin-right: 0.5em;
+}
+
+.last-name {
+    margin-left: .5em;
+}

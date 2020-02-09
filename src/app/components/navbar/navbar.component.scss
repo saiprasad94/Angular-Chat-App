@@ -1,0 +1,19 @@
+@import '../../../styles.scss';
+@import '../../../variables.scss';
+
+--root {
+    --light-gray : light-grey;
+}
+
+span {
+    color: #ffffff;
+}
+
+a{
+    color:var(light-grey);
+    margin-left: 3em;
+
+    &.active{
+        border-bottom: 3px solid $gold;
+    }
+}
