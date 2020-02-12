@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder,FormGroup, Validators} from '@angular/forms';
 import { $ } from 'protractor';
+import { Alert } from 'src/app/classes/alert';
+import { AlertType } from 'src/app/enums/alert-type.enum';
+import { AlertService } from 'src/app/services/alert.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   public loginForm : FormGroup;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private alertService: AlertService) { 
     this.createForm();
   }
 
@@ -26,8 +29,16 @@ export class LoginComponent implements OnInit {
   }
 
   public submit():void{
-    const{email,password} = this.loginForm.value;
-    console.log(`Email: ${email}, Password: ${password}`);
+
+    if (this.loginForm.valid){
+      const{email,password} = this.loginForm.value;
+      console.log(`Email: ${email}, Password: ${password}`);
+    } else{
+      const failedLoginAlert = new Alert('your email or password is invalied', AlertType.Danger);
+      this.alertService.alerts.next(failedLoginAlert);
+    }
+
+    
   }
 
 }
