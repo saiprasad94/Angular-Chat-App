@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgxLoadingModule } from 'ngx-loading';
 
 import{AlertModule} from 'ngx-bootstrap';
 
@@ -7,6 +8,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms';
 
 import {AlertService } from './services/alert.service';
+import { LoadingService } from './services/loading.service';
+import { AuthService } from './services/auth.service';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +24,7 @@ import { ChatListComponent } from './pages/chat/components/chat-list/chat-list.c
 import { ChatroomTitleBarComponent } from './pages/chat/components/chatroom-title-bar/chatroom-title-bar.component';
 import { ChatMessagesComponent } from './pages/chat/components/chat-messages/chat-messages.component';
 import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window/chatroom-window.component';
+
 
 @NgModule({
   declarations: [
@@ -43,10 +47,13 @@ import { ChatroomWindowComponent } from './pages/chat/components/chatroom-window
     BsDropdownModule.forRoot(),
     AlertModule.forRoot(),
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgxLoadingModule.forRoot({})
   ],
   providers: [
-    AlertService
+    AlertService,
+    LoadingService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
